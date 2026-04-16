@@ -15,13 +15,13 @@ char **split_string(char *str)
 
 	words = malloc(sizeof(char *) * 64);
 
-	current_word = strtok(str, " ");
+	current_word = strtok(str, " \n");
 
 	while (current_word != NULL)
 	{
-		words[i] = current_word;
+		words[i] = strdup(current_word);
 		i++;
-		current_word = strtok(NULL, " ");
+		current_word = strtok(NULL, " \n");
 	}
 
 	words[i] = NULL;
