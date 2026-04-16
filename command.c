@@ -1,12 +1,16 @@
 #include <stdlib.h>
 #include <string.h>
 
+/**
+ * split_string - Découpe une chaîne de caractères en un tableau de mots.
+ * @str: La chaîne de caractères à découper (provenant de getline).
+ *
+ * Description: Utilise strtok pour séparer la chaîne selon les espaces
+ * et les retours à la ligne. Chaque mot est dupliqué en mémoire.
+ * Return: Un tableau de pointeurs vers les mots, terminé par NULL.
+ * Retourne NULL en cas d'échec d'allocation.
+ */
 
-/*
-*
-* fonction pour découper une chaîne de caractère
-* en mots organisé dans un tableau
-*/
 char **split_string(char *str)
 {
 	int i = 0;
@@ -29,15 +33,16 @@ char **split_string(char *str)
 	return (words);
 }
 
-
-
-/*
-*
-* Fonction pour vider la mémoire d'un tableau de string
-*
-*/
+/**
+ * free_args - Libère la mémoire allouée pour un tableau de chaînes.
+ * @args: Le tableau de pointeurs vers les chaînes de caractères.
+ *
+ * Description: Parcourt le tableau pour libérer chaque chaîne dupliquée
+ * par strdup, puis libère le tableau lui-même. Ne fait rien si args est NULL
+ */
 
 void free_args(char **args)
+
 {
 	int i;
 

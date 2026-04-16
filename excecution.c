@@ -1,6 +1,21 @@
 #include "main.h"
 
+/**
+ * find_path - Localise le chemin d'une commande dans le système.
+ * @command: Le nom de la commande (ex: "ls" ou "/bin/ls").
+ *
+ * Description: La fonction vérifie d'abord si la commande contient un slash.
+ * Si c'est le cas, elle teste si le fichier existe. Sinon, elle parcourt
+ * la variable d'environnement PATH, découpe chaque répertoire et teste
+ * l'existence de la commande dans chacun d'eux.
+ *
+ * Return: Une chaîne de caractères contenant le chemin complet valide,
+ * ou NULL si la commande n'est pas trouvée ou en cas d'échec.
+ * Note: L'appelant est responsable de libérer la mémoire retournée (free).
+ */
+
 char *find_path(char *command)
+
 {
 	char *path = NULL, *path_copy, *token, *full_path;
 	struct stat st;
