@@ -22,7 +22,7 @@ ssize_t nread;
 char **args;
 int i;
 
-while (1);
+while (1)
 {
     printf ("$ ");
 nread = getline(&line, &len, stdin);
