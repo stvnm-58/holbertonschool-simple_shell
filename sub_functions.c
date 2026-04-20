@@ -4,6 +4,8 @@
  * find_path - Localise le chemin d'une commande dans le système.
  * @command: Le nom de la commande (ex: "ls" ou "/bin/ls").
  *
+ * Description: Parcourt la variable d'environnement PATH pour trouver
+ * l'exécutable correspondant à la commande donnée.
  * Return: Chemin complet valide, ou NULL si non trouvé.
  */
 char *find_path(char *command)
@@ -50,9 +52,9 @@ char *find_path(char *command)
 }
 
 /**
- * parse_line - Découpe la ligne en arguments.
- * @line: La chaîne à découper.
- * @av: Tableau de pointeurs pour stocker les morceaux.
+ * parse_line - Découpe la ligne de commande en arguments.
+ * @line: La chaîne de caractères à découper.
+ * @av: Tableau de pointeurs pour stocker les arguments.
  */
 void parse_line(char *line, char **av)
 {
@@ -81,9 +83,12 @@ void print_env(void)
 }
 
 /**
- * handle_execution - Gère la logique de décision et d'exécution.
+ * handle_execution - Gère la logique de décision et d'exécution des commandes.
  * @av: Tableau d'arguments.
- * @line: Ligne de saisie brute.
+ * @line: Ligne de saisie brute (pour libération mémoire).
+ *
+ * Description: Vérifie si la commande est un built-in (env) ou une commande
+ * externe. Gère le fork et l'exécution via execve.
  */
 void handle_execution(char **av, char *line)
 {
