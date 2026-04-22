@@ -1,0 +1,62 @@
+.TH SIMPLE_SHELL 1 "Avril 2026" "Holberton School"
+
+.SH NOM
+simple_shell \- interpréteur de commandes UNIX minimal
+
+.SH SYNOPSIS
+./simple_shell
+
+.SH DESCRIPTION
+simple_shell est un interpréteur de commandes simple qui lit l'entrée utilisateur,
+la découpe en arguments et exécute les commandes.
+
+Le shell affiche un prompt en mode interactif et fonctionne aussi en mode non-interactif.
+
+Les commandes sont séparées par des espaces, tabulations ou retours à la ligne.
+
+Si la commande contient un '/', elle est exécutée directement.
+Sinon, le shell recherche l'exécutable dans la variable PATH.
+
+Le shell utilise fork() puis execve() pour exécuter les commandes.
+
+.SH COMMANDES INTERNES
+exit
+    Quitte le shell.
+
+env
+    Affiche les variables d'environnement.
+
+.SH EXEMPLES
+Lancer le shell :
+    ./simple_shell
+
+Exécuter une commande simple :
+    $ ls
+
+Exécuter une commande avec options :
+    $ ls -la
+
+Utiliser une commande avec chemin absolu :
+    $ /bin/ls
+
+Afficher l'environnement :
+    $ env
+
+Quitter le shell :
+    $ exit
+
+.SH ENVIRONNEMENT
+PATH
+    Utilisée pour trouver les exécutables.
+
+.SH ERREURS
+Si une commande est introuvable :
+    ./shell: 1: commande: not found
+
+.SH LIMITATIONS
+Pas de pipes, redirections ou commandes multiples.
+Nombre d'arguments limité à 64.
+Pas de parsing avancé.
+
+.SH AUTEURS
+Ton Nom

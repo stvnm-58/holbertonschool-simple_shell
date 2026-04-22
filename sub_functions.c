@@ -29,7 +29,7 @@ char *find_path(char *command)
 		}
 		i++;
 	}
-	if (!path || !*path)
+	if (path == NULL || path[0] == '\0')
 		return (NULL);
 	path_copy = strdup(path);
 	token = strtok(path_copy, ":");
