@@ -83,7 +83,7 @@ void print_env(void)
 }
 
 /**
- * handle_execution - Gère la logique de décision et d'exécution des commandes.
+ * handle_execution - Gère la logique décision et d'exécution des commandes.
  * @av: Tableau d'arguments.
  * @line: Ligne de saisie brute (pour libération mémoire).
  *
